@@ -1,16 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
-import Index from './googleSignOn'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './auth.css'
+
+// Firebase
+import firebase from "firebase"
+import { auth } from '../../firebase';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -21,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "rgba(255, 0, 0, 0.5)"
+    background: "none"
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -29,23 +33,38 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: "rgba(255, 88, 65, 50)",
   },
 }));
 
-export default function SignIn() {
+const signInWithGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider).catch(error => alert(error.message));
+}
+
+export default function SignIn({userChange}) {
   const classes = useStyles();
+  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+
+  const signin = (event) => {
+    event.preventDefault();
+    auth.signInWithEmailAndPassword(email, password).catch((error) => alert(error.message))
+  }
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <img src={window.location.origin + '/fireIcon.png'} width="35px" height="35px" alt="" srcset="" />
+          <img src={window.location.origin + '/fireIcon.png'} width="35px" height="35px" alt="" />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign In
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -53,20 +72,22 @@ export default function SignIn() {
             fullWidth
             id="email"
             label="Email Address"
-            name="email"
             autoComplete="email"
             autoFocus
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            name="password"
             label="Password"
             type="password"
             id="password"
             autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <Button
             type="submit"
@@ -74,13 +95,19 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={signin}
           >
             Sign In
           </Button>
-          <Index />
+          <div className="google__auth">
+              <Button variant="outlined" color="primary" className="sign-in" onClick={signInWithGoogle}>
+                <i className="fa fa-google"></i>&nbsp; Join Using Google
+              </Button>
+              <p className="guideLine">Do not violate the community guidelines or you will be banned for life!</p>
+          </div>
           <Grid container>
             <Grid item>
-              <Link className="text-center" href="#/signup" variant="body2">
+              <Link className="text-center signup__link" href="#/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

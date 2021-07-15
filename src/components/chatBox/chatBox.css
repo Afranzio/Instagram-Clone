@@ -1,0 +1,119 @@
+.chatBox{
+    display: flex;
+    flex-direction: column;
+    flex: 0.80;
+    height: 100vh;
+}
+
+.chatBox__header{
+    display: flex;
+    height: 50px;
+    padding: 0px 20px;
+    background-color: #e9ecef;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chatBox__header > h4{
+    font-weight: 500;
+    color: gray;
+    cursor: pointer;
+}
+
+.chatBox__header > strong {
+    cursor: pointer;
+}
+
+.chatBox__username{
+    color: black;
+}
+
+.chatBox__inputBox{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid lightgrey;
+    background-color: #f3f3f3
+}
+
+.chatBox__inputBox > form{
+    flex: 1;
+}
+
+.chatBox__inputBox > form > input{
+    width: 98%;
+    outline-width: 0;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    padding: 5px 14px;
+}
+
+.chatBox__inputBox > form > button{
+    display: none;
+}
+
+.chatBox__chats{
+    flex: 1;
+    overflow: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.chatBox__chats::-webkit-scrollbar {
+    display: none;
+}
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+.chatBox__chats {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
+/* Message Code */
+.message{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: fit-content;
+    justify-content: space-between;
+    margin: 15px;
+    max-width: 40%;
+}
+
+.message > p{
+    background-color: #f3f3f5;
+    font-size: medium;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 10px;
+    margin-right: auto;
+}
+
+.message > small{
+    color: gray;
+    position: absolute;
+    font-size: 8px;
+    bottom: -5px;
+    right: 0;
+}
+
+.message__sender > p{
+    background-color: rgba(255, 88, 65, 50);
+}
+
+.message__sender{
+    margin-left: auto;
+}
+
+.message__sender > .message__photo{
+    order: 1;
+    margin: 15px;
+}
+
+.message__sender > .message__timestamp{ 
+    margin-right: 15px;
+}
+
+.message__photo{
+    order: 0;
+}

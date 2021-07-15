@@ -9,7 +9,7 @@ const Header = ( {username, location} ) => {
                 <div className="id">
                     {console.log(username)}
                     <h5>{username}</h5>
-                    <h6>{location}</h6>
+                    <small>{location}</small>
                 </div>
             </div>
         </div>

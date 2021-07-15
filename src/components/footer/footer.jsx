@@ -1,7 +1,7 @@
 import React from "react"
 import 'font-awesome/css/font-awesome.min.css';
 
-const Footer = () => <footer className="footer sticky-bottom page-footer font-small blue pt-4" style={{backgroundColor: "#e9ecef"}}>
+const Footer = () => <footer className="footer positionFooter sticky-bottom page-footer font-small blue pt-4" style={{backgroundColor: "#e9ecef"}}>
     <div className="container-fluid text-center text-md-left container">
         <div className="row">
             <div className="col-md-6 mt-md-0 mt-3 px-3">

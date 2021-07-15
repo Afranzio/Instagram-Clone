@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import {Input, Button} from '@material-ui/core'
 
-import { storage, db } from "../../firebase";
 import  firebase  from "firebase";
+import db, { storage } from "../../firebase";
 
 
 export default function ImageUpload({username}) {

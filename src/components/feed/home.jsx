@@ -1,14 +1,14 @@
 import React from 'react'
-import Post from '../../components/post/Post';
-import ImageUploader from '../../components/ImageUpload/imageUpload';
+import Post from '../post/Post';
+import ImageUploader from '../ImageUpload/imageUpload';
 
-export default function Home({posts, user, userChange}) {
+export default function Feed({posts, user}) {
     return (
         <div>
             <div className='container'>
                 <div className="App">
                     <div className='upload-container'>
-                        {user ? <ImageUploader username={user.displayName} /> : <h2>Please Login to Upload Photos</h2>}
+                        {user ? <ImageUploader username={user.displayName} /> : ''}
                     </div>
                     <div className='background'>
                         {

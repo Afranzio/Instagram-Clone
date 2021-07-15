@@ -1,0 +1,26 @@
+.MuiButton-containedPrimary:hover {
+    background-color: #fff !important;
+    color: rgba(255, 88, 65, 50);
+    border: 1px solid rgba(255, 88, 65, 50);
+}
+
+.google__auth{
+    text-align: center;
+}
+
+.google__auth > Button {
+    margin: 1em 0em;
+}
+
+.MuiButton-outlinedPrimary:hover {
+    color: rgba(255, 88, 65, 50);
+    border: 1px solid rgba(255, 88, 65, 50) !important;
+}
+
+.MuiGrid-container{
+    display: block !important;
+}
+
+.MuiGrid-item{
+    text-align: center;
+}

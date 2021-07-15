@@ -1,4 +1,16 @@
-.navbar{
-    border-bottom: 1px solid grey;
-    margin-bottom: 10px;
+.logo {
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.logo:hover {
+  background-color: rgb(212, 212, 212);
+  border-radius: 10px;
+}
+
+.navbar {
+  border-bottom: 1px solid grey;
+  margin-bottom: 10px;
 }
